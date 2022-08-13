@@ -66,13 +66,18 @@ export type ExtractCrdKind<T> = T extends {
 } ? Kind
   : unknown;
 
+export type DeriveCrdPluralName<T> = T extends {
+  kind: infer Kind;
+} ? Kind extends string ? `${Lowercase<Kind>}s` : unknown
+  : unknown;
+
 export type K8sApiPathsWithCrd<
   Paths,
   Def extends {
     apiVersion: string;
     kind: string;
   },
-  PluralName extends string,
+  PluralName extends string = DeriveCrdPluralName<Def>,
   Version extends string = ExtractCrdApiVersion<Def>,
   Kind extends string = ExtractCrdKind<Def>,
   ListDef = {

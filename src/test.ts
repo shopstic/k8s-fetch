@@ -25,6 +25,5 @@ type AutoscaledJob = {
 
 type Paths = K8sApiPathsWithCrd<
   K8sApiPaths,
-  AutoscaledJob,
-  "autoscaledjobs"
+  AutoscaledJob
 >;
