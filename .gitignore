@@ -1,6 +1,7 @@
 /dist
 /.vscode
 /examples/*/dist
-/examples/*/node_modules
-/.zsh_history
+node_modules
+tsconfig.tsbuildinfo
+.zsh_history
 /.env

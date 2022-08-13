@@ -1,6 +1,6 @@
 import { K8s, K8sApiPaths, K8sApiPathsWithCrd, k8sApiWatch } from "k8s-fetch";
 import { default as immerProduce } from "immer";
-import { Fetcher } from "k8s-fetch/types/deps";
+import { Fetcher } from "openapi-ts-fetch";
 
 type AutoscaledJob = {
   apiVersion: "shopstic.com/v1";
@@ -25,13 +25,7 @@ type AutoscaledJob = {
   };
 };
 
-type Paths = K8sApiPathsWithCrd<
-  K8sApiPaths,
-  AutoscaledJob["apiVersion"],
-  AutoscaledJob["kind"],
-  "autoscaledjobs",
-  AutoscaledJob
->;
+type Paths = K8sApiPathsWithCrd<K8sApiPaths, AutoscaledJob, "autoscaledjobs">;
 
 const fetcher = Fetcher.for<Paths>().configure({
   baseUrl: "http://localhost:8001",

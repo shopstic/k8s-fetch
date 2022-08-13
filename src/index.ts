@@ -1,10 +1,4 @@
-import {
-  FetchArgType,
-  Fetcher,
-  FetcherApi,
-  FetchReturnType,
-  TypedFetch,
-} from "./deps.ts";
+import { FetchArgType, Fetcher, FetcherApi, FetchReturnType, TypedFetch } from "./deps.ts";
 import { readerFromStreamReader, readLines } from "./deps.ts";
 import { definitions as K8s, paths as K8sApiPaths } from "./types.ts";
 
@@ -62,12 +56,25 @@ export type K8sApiPathNameAndNamespace = K8sApiPathNamespace & {
   name: string;
 };
 
+export type ExtractCrdApiVersion<T> = T extends {
+  apiVersion: infer Version;
+} ? Version
+  : unknown;
+
+export type ExtractCrdKind<T> = T extends {
+  kind: infer Kind;
+} ? Kind
+  : unknown;
+
 export type K8sApiPathsWithCrd<
   Paths,
-  Version extends string,
-  Kind extends string,
+  Def extends {
+    apiVersion: string;
+    kind: string;
+  },
   PluralName extends string,
-  Def,
+  Version extends string = ExtractCrdApiVersion<Def>,
+  Kind extends string = ExtractCrdKind<Def>,
   ListDef = {
     apiVersion: Version;
     kind: `${Kind}List`;
