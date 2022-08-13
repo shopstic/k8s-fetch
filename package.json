@@ -1,0 +1,22 @@
+{
+  "name": "k8s-fetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./esm/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shopstic/k8s-fetch.git"
+  },
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/shopstic/k8s-fetch/issues"
+  },
+  "homepage": "https://github.com/shopstic/k8s-fetch#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.6"
+  }
+}
