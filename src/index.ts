@@ -1,12 +1,13 @@
-import { FetchArgType, Fetcher, FetcherApi, FetchReturnType, TypedFetch } from "./deps.ts";
-import { readerFromStreamReader, readLines } from "./deps.ts";
+import {
+  OpenapiOperationApi,
+  OpenapiOperationApiArgType,
+  OpenapiOperationApiReturnType,
+  readerFromStreamReader,
+  readLines,
+} from "./deps.ts";
 import { definitions as K8s, paths as K8sApiPaths } from "./types.ts";
 
 export type { K8s, K8sApiPaths };
-
-export function createK8sFetcher(): FetcherApi<K8sApiPaths> {
-  return Fetcher.for<K8sApiPaths>();
-}
 
 export type K8sApiGetQuery = {
   pretty?: string;
@@ -258,9 +259,9 @@ export type K8sApiExtractListItemType<T> = T extends {
 
 export function k8sApiWatch<
   // deno-lint-ignore no-explicit-any
-  Func extends TypedFetch<any>,
-  Item extends K8sApiExtractListItemType<FetchReturnType<Func>>,
-  Args extends FetchArgType<Func>,
+  Func extends OpenapiOperationApi<any>,
+  Item extends K8sApiExtractListItemType<OpenapiOperationApiReturnType<Func>>,
+  Args extends OpenapiOperationApiArgType<Func>,
 >(
   api: Func,
 ): (
