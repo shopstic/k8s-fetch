@@ -38,9 +38,9 @@ await build({
     lib: ["es2020", "dom"],
   },
   mappings: {
-    "https://deno.land/x/openapi_client@3.0.0/index.ts": {
+    "https://deno.land/x/openapi_client@3.0.1/index.ts": {
       name: "openapi-typed-client",
-      version: "3.0.0",
+      version: "3.0.1",
     },
   },
 });
