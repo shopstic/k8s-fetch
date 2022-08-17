@@ -1,5 +1,5 @@
 {
-  "name": "k8s-fetch",
+  "name": "k8s-openapi",
   "version": "1.1.0",
   "description": "",
   "main": "./esm/index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shopstic/k8s-fetch.git"
+    "url": "git+https://github.com/shopstic/k8s-openapi.git"
   },
   "author": "",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/shopstic/k8s-fetch/issues"
+    "url": "https://github.com/shopstic/k8s-openapi/issues"
   },
-  "homepage": "https://github.com/shopstic/k8s-fetch#readme",
+  "homepage": "https://github.com/shopstic/k8s-openapi#readme",
   "devDependencies": {
     "@types/node": "^18.0.6"
   }
